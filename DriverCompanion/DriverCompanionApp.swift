@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct DriverCompanionApp: App {
+    @StateObject var searchController = SearchController()
+    @StateObject var locationManager = LocationManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
+                .environmentObject(searchController)
+                .environmentObject(locationManager)
         }
     }
 }
